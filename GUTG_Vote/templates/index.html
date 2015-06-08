@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+{% block content %}
+{% for game in games %}
+<div class="row">
+{% if current_user.is_authenticated() %}
+    {% if current_user.username not in game.voters %}
+        <div class="col s1"><a href="#" onclick="$.post('/{{game.game_id}}/vote', function(data){$('#{{game.game_id}}-vote').html(data)})">^</a></div>
+    {% else %}
+        <div class="col s1">*</div>
+    {% endif %}
+{% endif %}
+    <div class="col s1" id="{{game.game_id}}-vote">{{game.votes}}</div>
+    <div class="col s10">{{game.title}}</div>
+</div>
+{% endfor %}
+{% endblock %}

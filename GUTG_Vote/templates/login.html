@@ -1,0 +1,43 @@
+{%extends "layout.html" %}
+
+{%block title %}Login{% endblock %}
+
+{%block content %}
+    <div class="row">
+        <div class="col m6 offset-m3 boxform ">
+            <form role="form" action="{{ url_for('.login') }}" method="post">
+                {{ form.hidden_tag() }}
+                <div class="input-field">
+                    {{ form.username.label }}
+                    {% if form.username.errors %}
+                        {% for e in form.username.errors %}
+                            <p class="help-block">{{ e }}</p>
+                        {% endfor %}
+                    {% endif %}
+                    {{ form.username(class_="validate materialize-form") }}
+                </div>
+                <div class="input-field">
+                    {{ form.password.label }}
+                    {% if form.password.errors %}
+                        {% for e in form.password.errors %}
+                            <p class="help-block">{{ e }}</p>
+                        {% endfor %}
+                    {% endif %}
+                    {{ form.password(class_="validate materialize-form") }}
+                </div>
+                <div class="input-field">
+                {{form.remember_me.label}}
+                <br>
+                </div>
+                <div class="input-field center">
+                    <div class="remember-me switch pink accent-3">
+                        <label>
+                        Off {{ form.remember_me() }} <span class="lever"></span> On
+                        </label>
+                    </div> 
+                </div>
+                <button type="submit" class="pink accent-3 btn btn-primary right">Submit</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}

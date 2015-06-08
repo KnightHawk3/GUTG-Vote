@@ -1,0 +1,23 @@
+.boxform {
+    width: 100%;
+    padding: 25px 25px !important;
+    margin-top: 20px;
+    border: 5px solid #f06292;
+    border-radius: 5px;
+    background: #FFF none repeat scroll 0% 0%;
+}
+
+.remember-me {
+    margin-top: -3px;
+
+}
+
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
+}
