@@ -14,7 +14,7 @@ def before_request():
 
 @main.route('/')
 def index():
-    return render_template('index.html', games=Game.objects)
+    return render_template('index.html', games=Game.objects.order_by('votes'))
 
 @main.route('/login', methods=['GET', 'POST'])
 def login():
